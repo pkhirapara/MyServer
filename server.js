@@ -1,11 +1,11 @@
 const express=require('express');
 const mongoose=require('mongoose')
 const app=express();
-const PORT=8000;
+const PORT=3000;
 const route=require('./routes/routes')
 var bodyparser=require('body-parser')
 var cors=require('cors');
-
+//                             mongo dbpath/collection, 
 mongoose.connect('mongodb://localhost:27017/test', (err)=>{
     if(err) throw err
     console.log('connected to db')

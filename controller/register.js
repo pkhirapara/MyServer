@@ -21,5 +21,19 @@ module.exports={
 		}).catch(err=>{
 			console.log(err)
 		})  
+    },
+    getData:(req,res)=>{
+
+        registerModel.find().then(data=>{
+            if(data){
+                
+                res.json({status:true,data:data})
+            }else{
+                res.json({status:false,message:"Something went wrong"})
+            }
+        }).catch((err)=>{
+            console.log(err)
+        })    
+        
     }   
 }

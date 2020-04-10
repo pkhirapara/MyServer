@@ -5,5 +5,5 @@ var registerDetails=mongoose.Schema({
     mob:{type:String}
 })//schema is a class of mongoose 
 
-var registerModel=mongoose.model('register',registerDetails)
+var registerModel=mongoose.model('registerDetails',registerDetails)
 module.exports=registerModel

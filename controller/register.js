@@ -64,6 +64,41 @@ module.exports={
                 res.json({status:false,message:"username not found"})
             }            
         })
+    },
+    update:(req,res)=>{
+        var setValue={
+            $set:{
+                name:req.body.username,
+                mob:req.body.mobile,
+                email:req.body.email
+            }
+        }
+            console.log(setValue)
+        registerModel.updateOne({_id:req.body.id},setValue).then(data=>{
+            console.log(data)
+            if(data){
+                res.json({status:true,message:"data successfully updated"})
+            }else{
+                res.json({status:false,message:"something went wrong"})
+
+            }
+        }).catch((err)=>{
+            console.log(err)
+        })
+    },
+
+    deleteData:(req,res)=>{
+        var  id=req.body.id;
+        console.log(id);
+        registerModel.deleteOne({_id:id}).then(data=>{
+            if(data){
+                res.json({status:true,message:" data deleted successfully"})
+            }else{
+                res.json({status:false,message:"something went wrong"})
+            }
+        }).catch((err)=>{
+            console.log(err)
+        })
     }   
 }
 function encrypt(text){
